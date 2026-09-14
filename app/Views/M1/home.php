@@ -12,7 +12,7 @@
         <a href="/M1/about">About</a>
         <a href="/M1/customers">Customers</a>
         <a href="/M1/users">Users</a>
-        <a href="../home">Go back</a>
+        <a href="/">Go back</a>
     </nav>
 
     <p>Welcome to the Point-of-Sale system.</p>
