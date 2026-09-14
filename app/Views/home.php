@@ -13,6 +13,6 @@
         <a href="/M4/home">Module 4</a>
     </nav>
 
-    <p>Welcome to the Point-of-Sale system.</p>
+    <p>Welcome to my repository.</p>
 </body>
 </html>
