@@ -34,6 +34,6 @@ class Users extends BaseController
             ]
         ];
 
-        return view('/M1/users', ['users' => $users]);
+        return view('users', ['users' => $users]);
     }
 }

@@ -8,10 +8,10 @@
     <h2>PoS System</h2>
 
     <nav>
-        <a href="/M1/home">Home</a> |
-        <a href="/M1/about">About</a>
-        <a href="/M1/customers">Customers</a>
-        <a href="/M1/users">Users</a>
+        <a href="/home">Home</a> |
+        <a href="/about">About</a>
+        <a href="/customers">Customers</a>
+        <a href="/users">Users</a>
         <a href="/projects">Go back</a>
     </nav>
 
