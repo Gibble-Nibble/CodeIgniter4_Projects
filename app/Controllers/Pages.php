@@ -11,6 +11,6 @@ class Pages extends BaseController
 
     public function about()
     {
-        return view('about');
+        return view('M1/about');
     }
 }

@@ -34,6 +34,6 @@ class Customers extends BaseController
             ]
         ];
 
-        return view('customers', ['customers' => $customers]);
+        return view('M1/customers', ['customers' => $customers]);
     }
 }
