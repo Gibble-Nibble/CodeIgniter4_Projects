@@ -7,10 +7,10 @@
     <h1>Projects</h1>
 
     <nav>
-        <a href="/home">Module 1 - Technical</a> |
-        <a href="/about">About</a>
-        <a href="/customers">Customers</a>
-        <a href="/users">Users</a>
+        <a href="/M1/home">Module 1 - Technical</a> |
+        <a href="/">Placeholder</a>
+        <a href="/">Placeholder</a>
+        <a href="/">Placeholder</a>
         
         <a href="/projects">Projects</a>
     </nav>
