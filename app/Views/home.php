@@ -11,8 +11,6 @@
         <a href="/">Placeholder</a>
         <a href="/">Placeholder</a>
         <a href="/">Placeholder</a>
-        
-        <a href="/projects">Projects</a>
     </nav>
 
     <p>Welcome to the Point-of-Sale system.</p>

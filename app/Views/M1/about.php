@@ -7,10 +7,10 @@
     <h1>About</h1>
 
     <nav>
-        <a href="/">Home</a> |
-        <a href="/about">About</a>
-        <a href="/customers">Customers</a>
-        <a href="/users">Users</a>
+        <a href="/M1/home">Home</a> |
+        <a href="/M1/about">About</a>
+        <a href="/M1/customers">Customers</a>
+        <a href="/M1/users">Users</a>
     </nav>
 
     <p>This basic POS system manages customer and staff information.</p>

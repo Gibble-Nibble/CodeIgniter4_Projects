@@ -8,12 +8,11 @@
     <h2>PoS System</h2>
 
     <nav>
-        <a href="/">Home</a> |
-        <a href="/about">About</a>
-        <a href="/customers">Customers</a>
-        <a href="/users">Users</a>
-        
-        <a href="/projects">Projects</a>
+        <a href="/M1/home">Home</a> |
+        <a href="/M1/about">About</a>
+        <a href="/M1/customers">Customers</a>
+        <a href="/M1/users">Users</a>
+        <a href="/projects">Go back</a>
     </nav>
 
     <p>Welcome to the Point-of-Sale system.</p>
