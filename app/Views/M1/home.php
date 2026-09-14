@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>Module 1 - Technical</title>
 </head>
 <body>
-    <h1>Projects</h1>
+    <h1>Module 1 - Technical</h1>
+    <h2>PoS System</h2>
 
     <nav>
-        <a href="/home">Module 1 - Technical</a> |
+        <a href="/">Home</a> |
         <a href="/about">About</a>
         <a href="/customers">Customers</a>
         <a href="/users">Users</a>
