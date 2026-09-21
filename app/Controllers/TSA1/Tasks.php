@@ -17,7 +17,7 @@ class Tasks extends BaseController
             ->orderBy('id', 'ASC')
             ->findAll();
 
-        return view('TSA1/welcome', [
+        return view('TSA1/index', [
             'tasks' => $tasks
         ]);
     }
