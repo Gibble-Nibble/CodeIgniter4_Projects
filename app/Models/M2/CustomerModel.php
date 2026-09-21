@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\M2;
+
 use CodeIgniter\Model;
 
 class CustomerModel extends Model
