@@ -26,4 +26,9 @@ class Pages extends BaseController
     {
         return view('M2/index');
     }
+
+    public function module2_about()
+    {
+        return view('M2/about');
+    }
 }
