@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\CustomerModel;
+use App\Models\M2\CustomerModel;
 
 class Customers extends BaseController
 {
