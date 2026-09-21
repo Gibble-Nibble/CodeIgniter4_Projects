@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\TSA1;
 
 use CodeIgniter\Model;
 
