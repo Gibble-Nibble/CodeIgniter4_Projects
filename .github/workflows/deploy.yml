@@ -29,8 +29,6 @@ jobs:
             
             cd /var/www/codeigniter
 
-            sudo chown -R ubuntu:ubuntu writable
-
             git fetch origin
             git reset --hard origin/main
 
