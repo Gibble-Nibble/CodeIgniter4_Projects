@@ -7,7 +7,7 @@
     <h1>User Accounts</h1>
 
     <nav>
-        <a href="/M1/home">Home</a> |
+        <a href="/M1/index">Home</a> |
         <a href="/M1/about">About</a> |
         <a href="/M1/customers">Customers</a> |
         <a href="/M1/users">Users</a>

@@ -4,18 +4,26 @@ namespace App\Controllers;
 
 class Pages extends BaseController
 {
+    // Home page method
     public function home()
     {
         return view('home');
     }
 
-    public function module1Home()
+    // Module 1 methods
+    public function module1_index()
     {
-        return view('M1/home');
+        return view('M1/index');
     }
 
-    public function about()
+    public function module1_about()
     {
         return view('M1/about');
+    }
+
+    // Module 2 methods
+    public function module2_index()
+    {
+        return view('M2/index');
     }
 }
