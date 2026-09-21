@@ -35,6 +35,8 @@ jobs:
             composer install --no-dev --optimize-autoloader
 
             sudo chown -R www-data:www-data writable
+            echo "Ownership after chown:"
+            ls -ld writable writable/cache
 
             sudo setfacl -R -m u:1000:rwX /var/www/codeigniter
 
