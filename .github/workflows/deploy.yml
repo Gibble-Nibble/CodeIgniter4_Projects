@@ -29,6 +29,8 @@ jobs:
             
             cd /var/www/codeigniter
 
+            sudo setfacl -R -m u:1000:rwX /var/www/codeigniter
+
             git fetch origin
             git reset --hard origin/main
 
@@ -37,8 +39,6 @@ jobs:
             sudo chown -R www-data:www-data writable
             echo "Ownership after chown:"
             ls -ld writable writable/cache
-
-            sudo setfacl -R -m u:1000:rwX /var/www/codeigniter
 
             echo "Deployment completed successfully."
           EOF
