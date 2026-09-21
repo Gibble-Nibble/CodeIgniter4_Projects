@@ -6,6 +6,8 @@ use CodeIgniter\Model;
 
 class TaskModel extends Model
 {
+    protected $DBGroup = 'tasks';
+    
     protected $table = 'tasks';
     protected $primaryKey = 'id';
 
