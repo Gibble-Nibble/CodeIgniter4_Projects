@@ -18,7 +18,7 @@ $routes->get('/M2/customers', 'Customers::module2_index');
 $routes->get('/M2/users', 'Users::module2_index');
 
 // TSA1 routes
-$routes->get('/', 'TSA1\Tasks::welcome');
-$routes->get('/tasks', 'TSA1\Tasks::index');
-$routes->get('/profile', 'TSA1\Tasks::profile');
-$routes->get('/about', 'TSA1\Tasks::about');
+$routes->get('/TSA1/index', 'TSA1\Tasks::welcome');
+$routes->get('/TSA1/about', 'TSA1\Tasks::about');
+$routes->get('/TSA1/tasks', 'TSA1\Tasks::index');
+$routes->get('/TSA1/profile', 'TSA1\Tasks::profile');
