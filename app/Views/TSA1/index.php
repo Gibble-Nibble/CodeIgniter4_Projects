@@ -30,6 +30,7 @@
         <a href="/TSA1/tasks">All Tasks</a> |
         <a href="/TSA1/profile">Profile</a> |
         <a href="/TSA1/about">About</a>
+        <a href="/">get me out</a>
     </nav>
 
 </body>

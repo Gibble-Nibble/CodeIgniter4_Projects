@@ -25,7 +25,8 @@
     <nav>
         <a href="/TSA1/index">Today</a> |
         <a href="/TSA1/tasks">All Tasks</a> |
-        <a href="/TSA1/about">About</a>
+        <a href="/TSA1/about">About</a> |
+        <a href="/">get me out</a>
     </nav>
 
 </body>
