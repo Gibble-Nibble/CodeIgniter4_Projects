@@ -29,7 +29,7 @@ jobs:
             
             cd /var/www/codeigniter
 
-            sudo setfacl -R -m u:1000:rwX /var/www/codeigniter
+            sudo setfacl -R -m u:1001:rwX /var/www/codeigniter
 
             git fetch origin
             git reset --hard origin/main
