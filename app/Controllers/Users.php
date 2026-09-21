@@ -36,4 +36,13 @@ class Users extends BaseController
 
         return view('M1/users', ['users' => $users]);
     }
+
+    public function module2_index()
+    {
+        $userModel = new UserModel();
+
+        $users = $userModel->findAll();
+
+        return view('M2/users', ['users' => $users]);
+    }
 }
