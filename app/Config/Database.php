@@ -71,6 +71,26 @@ class Database extends Config
         'port'         => 3306,
     ];
 
+    public array $m3 = [
+        'DSN'          => '',
+        'hostname'     => 'localhost',
+        'username'     => 'codeigniter',
+        'password'     => 'Robbie25:)',
+        'database'     => 'pos_m3',
+        'DBDriver'     => 'MySQLi',
+        'DBPrefix'     => '',
+        'pConnect'     => false,
+        'DBDebug'      => true,
+        'charset'      => 'utf8mb4',
+        'DBCollat'     => 'utf8mb4_general_ci',
+        'swapPre'      => '',
+        'encrypt'      => false,
+        'compress'     => false,
+        'strictOn'     => false,
+        'failover'     => [],
+        'port'         => 3306,
+    ];
+
     //    /**
     //     * Sample database connection for SQLite3.
     //     *
