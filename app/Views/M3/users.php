@@ -6,6 +6,13 @@
     <title>User Accounts</title>
 </head>
 <body>
+    <nav>
+        <a href="/M3/index">Module 3</a> |
+        <a href="/customers">Customer Accounts</a> |
+        <a href="/users">User Accounts</a> |
+        <a href="/users/new">Add user</a>
+    </nav>
+
     <h1>User Accounts</h1>
 
     <?php if ($message !== null): ?>

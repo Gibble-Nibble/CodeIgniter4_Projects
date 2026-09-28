@@ -6,6 +6,12 @@
     <title><?= esc($heading) ?></title>
 </head>
 <body>
+    <nav>
+        <a href="/M3/index">Module 3</a> |
+        <a href="/customers">Customer Accounts</a> |
+        <a href="/users">User Accounts</a>
+    </nav>
+
     <h1><?= esc($heading) ?></h1>
 
     <?php if ($errors !== []): ?>

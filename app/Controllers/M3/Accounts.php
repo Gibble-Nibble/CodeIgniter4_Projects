@@ -138,7 +138,11 @@ class Accounts extends BaseController
         if ($avatar !== null && $avatar->getError() !== UPLOAD_ERR_NO_FILE) {
             $avatarName = $this->prepareAvatar($avatar, $errors);
             if ($avatarName !== null) {
-                $data['avatar'] = $avatarName;
+                if ($errors === []) {
+                    $data['avatar'] = $avatarName;
+                } else {
+                    @unlink(FCPATH . 'uploads/' . $avatarName);
+                }
             }
         }
 
