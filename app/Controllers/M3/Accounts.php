@@ -11,7 +11,7 @@ class Accounts extends BaseController
 {
     public function index()
     {
-        return redirect()->to('/customers');
+        return view('M3/index');
     }
 
     public function customers()

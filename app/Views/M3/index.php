@@ -7,7 +7,9 @@
 </head>
 <body>
     <h1>Module 3 POS Accounts</h1>
-    <p><a href="<?= site_url('customers') ?>">Customer Accounts</a></p>
-    <p><a href="<?= site_url('users') ?>">User Accounts</a></p>
+
+    <nav>
+        <a href="/">get me out</a>
+    </nav>
 </body>
 </html>

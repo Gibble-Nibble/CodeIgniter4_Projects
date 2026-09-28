@@ -9,6 +9,9 @@
     <nav>
         <a href="/M1/index">Module 1 - Technical</a> |
         <a href="/M2/index">Module 2</a> |
+        <a href="/M3/index">Module 3</a> |
+        <a href="/customers">Customer Accounts</a> |
+        <a href="/users">User Accounts</a> |
         <a href="/TSA1/index">TSA</a> |
         <a href="/M4/index">Module 4</a>
     </nav>

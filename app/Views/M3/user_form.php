@@ -6,7 +6,6 @@
     <title><?= esc($heading) ?></title>
 </head>
 <body>
-    <p><a href="<?= site_url('customers') ?>">Customer Accounts</a> | <a href="<?= site_url('users') ?>">User Accounts</a></p>
     <h1><?= esc($heading) ?></h1>
 
     <?php if ($errors !== []): ?>

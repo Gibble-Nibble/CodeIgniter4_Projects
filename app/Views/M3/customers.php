@@ -6,7 +6,6 @@
     <title>Customer Accounts</title>
 </head>
 <body>
-    <p><a href="<?= site_url('customers/new') ?>">Add customer</a> | <a href="<?= site_url('users') ?>">User Accounts</a></p>
     <h1>Customer Accounts</h1>
 
     <?php if ($message !== null): ?>
