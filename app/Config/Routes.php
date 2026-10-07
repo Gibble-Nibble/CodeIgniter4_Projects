@@ -42,6 +42,7 @@ $routes->get('/TSA2/about', 'TSA2\Tasks::about');
 $routes->get('/TSA2/tasks', 'TSA2\Tasks::index');
 $routes->get('/TSA2/profile', 'TSA2\Tasks::profile');
 $routes->match(['get', 'post'], '/TSA2/login', 'TSA2\Auth::login');
+$routes->match(['get', 'post'], '/TSA2/register', 'TSA2\Auth::register');
 $routes->get('/TSA2/logout', 'TSA2\Auth::logout');
 $routes->get('/TSA2/tasks/new', 'TSA2\Tasks::new');
 $routes->post('/TSA2/tasks', 'TSA2\Tasks::create');

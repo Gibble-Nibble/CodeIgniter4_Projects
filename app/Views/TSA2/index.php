@@ -15,7 +15,7 @@
     <a href="/TSA2/tasks">All Tasks</a> |
     <a href="/TSA2/profile">Profile</a> |
     <a href="/TSA2/about">About</a> |
-    <?php if (session('tsa2_user_id')): ?><a href="/TSA2/logout">Logout</a><?php else: ?><a href="/TSA2/login">Login</a><?php endif; ?>
+    <?php if (session('tsa2_user_id')): ?><a href="/TSA2/logout">Logout</a><?php else: ?><a href="/TSA2/login">Login</a> | <a href="/TSA2/register">Register</a><?php endif; ?>
 </nav>
 </body>
 </html>
