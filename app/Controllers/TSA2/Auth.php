@@ -14,7 +14,7 @@ class Auth extends BaseController
             return redirect()->to('/TSA2/profile');
         }
 
-        if ($this->request->getMethod() === 'post') {
+        if ($this->request->is('post')) {
             $rules = ['username' => 'required', 'password' => 'required'];
             if (! $this->validate($rules)) {
                 log_message('error', 'TSA2 login validation failed: {errors}', ['errors' => json_encode($this->validator->getErrors())]);
@@ -58,7 +58,7 @@ class Auth extends BaseController
             return redirect()->to('/TSA2/profile');
         }
 
-        if ($this->request->getMethod() !== 'post') {
+        if (! $this->request->is('post')) {
             return view('TSA2/register');
         }
 
