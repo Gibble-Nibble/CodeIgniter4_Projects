@@ -42,6 +42,8 @@ class Auth extends BaseController
             return view('TSA2/register');
         }
 
+        log_message('error', 'TSA2 REGISTER POST RECEIVED');
+
         $rules = [
             'username'         => 'required|min_length[3]|max_length[100]',
             'full_name'        => 'required|max_length[255]',
