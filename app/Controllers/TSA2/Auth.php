@@ -3,6 +3,7 @@
 namespace App\Controllers\TSA2;
 
 use App\Controllers\BaseController;
+use CodeIgniter\Database\Exceptions\DatabaseException;
 use App\Models\TSA2\UserModel;
 
 class Auth extends BaseController
@@ -74,24 +75,35 @@ class Auth extends BaseController
             return view('TSA2/register', ['validation' => $this->validator]);
         }
 
-        $username = trim((string) $this->request->getPost('username'));
         $model = new UserModel();
-        if ($model->where('username', $username)->first()) {
-            log_message('error', 'TSA2 registration rejected duplicate username: {username}', ['username' => $username]);
+        $username = trim((string) $this->request->getPost('username'));
+
+        try {
+            if ($model->where('username', $username)->first()) {
+                log_message('error', 'TSA2 registration rejected duplicate username: {username}', ['username' => $username]);
+                return view('TSA2/register', [
+                    'error' => 'That username is already registered.',
+                ]);
+            }
+
+            $userId = $model->insert([
+                'username'   => $username,
+                'full_name'  => trim((string) $this->request->getPost('full_name')),
+                'email'      => trim((string) $this->request->getPost('email')),
+                'password'   => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+                'created_at' => date('Y-m-d H:i:s'),
+            ]);
+        } catch (DatabaseException|\mysqli_sql_exception $exception) {
+            log_message('error', 'TSA2 registration database failure: {message}', [
+                'message' => $exception->getMessage(),
+            ]);
+
             return view('TSA2/register', [
-                'error' => 'That username is already registered.',
+                'error' => 'The account could not be created because of a database error.',
             ]);
         }
 
-        $userId = $model->insert([
-            'username'   => $username,
-            'full_name'  => trim((string) $this->request->getPost('full_name')),
-            'email'      => trim((string) $this->request->getPost('email')),
-            'password'   => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-            'created_at' => date('Y-m-d H:i:s'),
-        ]);
-
-        if ($userId === false) {
+        if ($userId === false || $userId === null) {
             log_message('error', 'TSA2 registration failed: {errors}', ['errors' => json_encode($model->errors())]);
             return view('TSA2/register', [
                 'error' => 'Your account could not be created. Please check the details and try again.',

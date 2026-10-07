@@ -5,7 +5,15 @@
 <main>
 <h1>Create an Account</h1>
 <?php if (isset($error)): ?><p class="error" role="alert"><?= esc($error) ?></p><?php endif; ?>
-<?php if (isset($validation)): ?><p><?= esc($validation->listErrors()) ?></p><?php endif; ?>
+<?php if (isset($validation)): ?>
+    <div class="error" role="alert">
+        <ul>
+            <?php foreach ($validation->getErrors() as $message): ?>
+                <li><?= esc($message) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
 <form method="post" action="/TSA2/register">
     <label>Username <input type="text" name="username" value="<?= esc(old('username')) ?>" required></label><br>
     <label>Full name <input type="text" name="full_name" value="<?= esc(old('full_name')) ?>" required></label><br>
