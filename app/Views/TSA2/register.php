@@ -14,6 +14,6 @@
     <button type="submit">Register</button>
 </form>
 <p><a href="/TSA2/login">Already have an account? Log in</a></p>
-<p><a href="/TSA2/index">Back</a> | <a href="/">Get me out</a></p>
+<p><a href="/TSA2/index">Back</a></p>
 </body>
 </html>

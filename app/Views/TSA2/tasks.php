@@ -20,7 +20,7 @@
     <?php endforeach; ?></ul>
 <?php endif; ?>
 <hr>
-<nav><a href="/TSA2/index">Today</a> | <a href="/TSA2/profile">Profile</a> | <a href="/TSA2/about">About</a> | <a href="/">Get me out</a> |
+<nav><a href="/TSA2/index">Today</a> | <a href="/TSA2/profile">Profile</a> | <a href="/TSA2/about">About</a> | <a href="/TSA2/index">Back</a> |
 <?php if (session('tsa2_user_id')): ?><a href="/TSA2/logout">Logout</a><?php else: ?><a href="/TSA2/login">Login</a> | <a href="/TSA2/register">Register</a><?php endif; ?></nav>
 </body>
 </html>

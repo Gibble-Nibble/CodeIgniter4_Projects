@@ -8,6 +8,6 @@
 <p><strong>Full Name:</strong> <?= esc($user['full_name']) ?></p>
 <p><strong>Email:</strong> <?= esc($user['email']) ?></p>
 <?php else: ?><p>No user found.</p><?php endif; ?>
-<p><a href="/TSA2/index">Today</a> | <a href="/TSA2/tasks">All Tasks</a> | <a href="/TSA2/about">About</a> | <a href="/">Get me out</a></p>
+<p><a href="/TSA2/index">Today</a> | <a href="/TSA2/tasks">All Tasks</a> | <a href="/TSA2/about">About</a> | <a href="/TSA2/index">Back</a></p>
 </body>
 </html>

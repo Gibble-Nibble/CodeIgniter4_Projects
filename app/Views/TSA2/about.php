@@ -4,6 +4,6 @@
 <body>
 <h1>About</h1>
 <p>Tasks for Today Management System</p>
-<p><a href="/TSA2/index">Today</a> | <a href="/TSA2/tasks">All Tasks</a> | <a href="/TSA2/profile">Profile</a> | <a href="/">Get me out</a></p>
+<p><a href="/TSA2/index">Today</a> | <a href="/TSA2/tasks">All Tasks</a> | <a href="/TSA2/profile">Profile</a> | <a href="/TSA2/index">Back</a></p>
 </body>
 </html>

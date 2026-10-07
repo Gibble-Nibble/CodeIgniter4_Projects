@@ -11,6 +11,6 @@
     <label>Task date <input type="date" name="task_date" value="<?= esc($task['task_date'] ?? '') ?>" required></label><br>
     <button type="submit">Save</button>
 </form>
-<p><a href="/TSA2/tasks">Cancel</a> | <a href="/">Get me out</a></p>
+<p><a href="/TSA2/index">Back</a></p>
 </body>
 </html>
