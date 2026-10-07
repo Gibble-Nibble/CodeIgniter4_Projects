@@ -30,7 +30,20 @@ class Tasks extends BaseController
 
     public function profile()
     {
-        return view('TSA2/profile', ['user' => (new UserModel())->first()]);
+        $userModel = new UserModel();
+        $user = session('tsa2_user_id')
+            ? $userModel->find(session('tsa2_user_id'))
+            : $userModel->first();
+
+        if (! $user) {
+            if (session('tsa2_user_id')) {
+                log_message('error', 'TSA2 profile user not found for session user ID: {id}', [
+                    'id' => session('tsa2_user_id'),
+                ]);
+            }
+        }
+
+        return view('TSA2/profile', ['user' => $user]);
     }
 
     public function about()
