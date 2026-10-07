@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Profile</title></head>
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <style>.toast { background: #d1fae5; border: 1px solid #10b981; border-radius: 4px; padding: 10px; }</style>
+</head>
 <body>
 <h1>Profile</h1>
+<?php if (session('success')): ?><p class="toast" role="status"><?= esc(session('success')) ?></p><?php endif; ?>
 <?php if ($user): ?>
 <p><strong>Username:</strong> <?= esc($user['username']) ?></p>
 <p><strong>Full Name:</strong> <?= esc($user['full_name']) ?></p>

@@ -10,12 +10,13 @@ class Auth extends BaseController
     public function login()
     {
         if (session('tsa2_user_id')) {
-            return redirect()->to('/TSA2/tasks');
+            return redirect()->to('/TSA2/profile');
         }
 
         if ($this->request->getMethod() === 'post') {
             $rules = ['username' => 'required', 'password' => 'required'];
             if (! $this->validate($rules)) {
+                log_message('error', 'TSA2 login validation failed: {errors}', ['errors' => json_encode($this->validator->getErrors())]);
                 return view('TSA2/login', ['validation' => $this->validator]);
             }
 
@@ -29,13 +30,21 @@ class Auth extends BaseController
 
             if ($validPassword) {
                 if (! password_get_info((string) $user['password'])['algo']) {
-                    $model->update($user['id'], ['password' => password_hash($password, PASSWORD_DEFAULT)]);
+                    if (! $model->update($user['id'], ['password' => password_hash($password, PASSWORD_DEFAULT)])) {
+                        log_message('error', 'TSA2 password upgrade failed for user ID {id}: {errors}', [
+                            'id' => $user['id'],
+                            'errors' => json_encode($model->errors()),
+                        ]);
+                    }
                 }
                 session()->regenerate();
                 session()->set(['tsa2_user_id' => $user['id'], 'tsa2_username' => $user['username']]);
-                return redirect()->to('/TSA2/tasks');
+                return redirect()->to('/TSA2/profile')->with('success', 'Login successful.');
             }
 
+            log_message('error', 'TSA2 login failed for username: {username}', [
+                'username' => $this->request->getPost('username'),
+            ]);
             return view('TSA2/login', ['error' => 'Invalid username or password.']);
         }
 
@@ -45,14 +54,12 @@ class Auth extends BaseController
     public function register()
     {
         if (session('tsa2_user_id')) {
-            return redirect()->to('/TSA2/tasks');
+            return redirect()->to('/TSA2/profile');
         }
 
         if ($this->request->getMethod() !== 'post') {
             return view('TSA2/register');
         }
-
-        log_message('error', 'TSA2 REGISTER POST RECEIVED');
 
         $rules = [
             'username'         => 'required|min_length[3]|max_length[100]',
@@ -63,12 +70,14 @@ class Auth extends BaseController
         ];
 
         if (! $this->validate($rules)) {
+            log_message('error', 'TSA2 registration validation failed: {errors}', ['errors' => json_encode($this->validator->getErrors())]);
             return view('TSA2/register', ['validation' => $this->validator]);
         }
 
         $username = trim((string) $this->request->getPost('username'));
         $model = new UserModel();
         if ($model->where('username', $username)->first()) {
+            log_message('error', 'TSA2 registration rejected duplicate username: {username}', ['username' => $username]);
             return view('TSA2/register', [
                 'error' => 'That username is already registered.',
             ]);
