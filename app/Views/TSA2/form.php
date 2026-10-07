@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title><?= esc($title) ?></title></head>
+<head><meta charset="UTF-8"><title><?= esc($title) ?></title><?php include APPPATH . 'Views/TSA2/_styles.php'; ?></head>
 <body>
+<main>
 <h1><?= esc($title) ?></h1>
 <?php if (isset($validation)): ?><p><?= esc($validation->listErrors()) ?></p><?php endif; ?>
 <?php $task = $task ?? []; ?>
@@ -12,5 +13,6 @@
     <button type="submit">Save</button>
 </form>
 <p><a href="/TSA2/index">Back</a></p>
+</main>
 </body>
 </html>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Tasks for Today</title></head>
+<head><meta charset="UTF-8"><title>Tasks for Today</title><?php include APPPATH . 'Views/TSA2/_styles.php'; ?></head>
 <body>
+<main>
 <h1>Tasks for Today</h1>
 <?php if (empty($tasks)): ?>
     <p>No tasks for today.</p>
@@ -18,5 +19,6 @@
     <a href="/">Get me out</a> |
     <?php if (session('tsa2_user_id')): ?><a href="/TSA2/logout">Logout</a><?php else: ?><a href="/TSA2/login">Login</a> | <a href="/TSA2/register">Register</a><?php endif; ?>
 </nav>
+</main>
 </body>
 </html>

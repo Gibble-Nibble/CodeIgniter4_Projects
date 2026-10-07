@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <style>.toast { background: #d1fae5; border: 1px solid #10b981; border-radius: 4px; padding: 10px; }</style>
+    <?php include APPPATH . 'Views/TSA2/_styles.php'; ?>
 </head>
 <body>
+<main>
 <h1>Login</h1>
-<?php if (isset($error)): ?><p><?= esc($error) ?></p><?php endif; ?>
+<?php if (isset($error)): ?><p class="error"><?= esc($error) ?></p><?php endif; ?>
 <?php if (session('success')): ?><p class="toast" role="status"><?= esc(session('success')) ?></p><?php endif; ?>
 <?php if (isset($validation)): ?><p><?= esc($validation->listErrors()) ?></p><?php endif; ?>
 <form method="post" action="/TSA2/login">
@@ -17,5 +18,6 @@
 </form>
 <p><a href="/TSA2/register">Create an account</a></p>
 <p><a href="/TSA2/index">Back</a></p>
+</main>
 </body>
 </html>
