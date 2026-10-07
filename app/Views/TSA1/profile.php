@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Profile</title>
+    <?php include APPPATH . 'Views/_styles.php'; ?>
 </head>
 <body>
 

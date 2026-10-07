@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Module 3 - POS Accounts</title>
+    <?php include APPPATH . 'Views/_styles.php'; ?>
 </head>
 <body>
     <h1>Module 3 POS Accounts</h1>

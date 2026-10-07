@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Module 2 - Technical</title>
+    <?php include APPPATH . 'Views/_styles.php'; ?>
 </head>
 <body>
     <h1>Module 2 - Technical</h1>

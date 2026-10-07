@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Customer Accounts - POS System</title>
+    <?php include APPPATH . 'Views/_styles.php'; ?>
 </head>
 <body>
     <h1>Customer Accounts</h1>
