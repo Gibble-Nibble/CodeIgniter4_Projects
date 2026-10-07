@@ -19,8 +19,18 @@ class Auth extends BaseController
                 return view('TSA2/login', ['validation' => $this->validator]);
             }
 
-            $user = (new UserModel())->where('username', $this->request->getPost('username'))->first();
-            if ($user && password_verify($this->request->getPost('password'), $user['password'])) {
+            $model = new UserModel();
+            $password = (string) $this->request->getPost('password');
+            $user = $model->where('username', trim((string) $this->request->getPost('username')))->first();
+            $validPassword = $user && (
+                password_verify($password, $user['password'])
+                || hash_equals((string) $user['password'], $password)
+            );
+
+            if ($validPassword) {
+                if (! password_get_info((string) $user['password'])['algo']) {
+                    $model->update($user['id'], ['password' => password_hash($password, PASSWORD_DEFAULT)]);
+                }
                 session()->regenerate();
                 session()->set(['tsa2_user_id' => $user['id'], 'tsa2_username' => $user['username']]);
                 return redirect()->to('/TSA2/tasks');
@@ -56,24 +66,26 @@ class Auth extends BaseController
             return view('TSA2/register', ['validation' => $this->validator]);
         }
 
+        $username = trim((string) $this->request->getPost('username'));
         $model = new UserModel();
-        if ($model->where('username', $this->request->getPost('username'))->first()) {
+        if ($model->where('username', $username)->first()) {
             return view('TSA2/register', [
                 'error' => 'That username is already registered.',
             ]);
         }
 
         $userId = $model->insert([
-            'username'   => $this->request->getPost('username'),
-            'full_name'  => $this->request->getPost('full_name'),
-            'email'      => $this->request->getPost('email'),
+            'username'   => $username,
+            'full_name'  => trim((string) $this->request->getPost('full_name')),
+            'email'      => trim((string) $this->request->getPost('email')),
             'password'   => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
 
         if ($userId === false) {
+            log_message('error', 'TSA2 registration failed: {errors}', ['errors' => json_encode($model->errors())]);
             return view('TSA2/register', [
-                'error' => 'Your account could not be created. Please try again.',
+                'error' => 'Your account could not be created. Please check the details and try again.',
             ]);
         }
 
