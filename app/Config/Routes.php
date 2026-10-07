@@ -22,3 +22,16 @@ $routes->get('/TSA1/index', 'TSA1\Tasks::welcome');
 $routes->get('/TSA1/about', 'TSA1\Tasks::about');
 $routes->get('/TSA1/tasks', 'TSA1\Tasks::index');
 $routes->get('/TSA1/profile', 'TSA1\Tasks::profile');
+
+// TSA2 routes
+$routes->get('/TSA2/index', 'TSA2\Tasks::welcome');
+$routes->get('/TSA2/about', 'TSA2\Tasks::about');
+$routes->get('/TSA2/tasks', 'TSA2\Tasks::index');
+$routes->get('/TSA2/profile', 'TSA2\Tasks::profile');
+$routes->match(['get', 'post'], '/TSA2/login', 'TSA2\Auth::login');
+$routes->get('/TSA2/logout', 'TSA2\Auth::logout');
+$routes->get('/TSA2/tasks/new', 'TSA2\Tasks::new');
+$routes->post('/TSA2/tasks', 'TSA2\Tasks::create');
+$routes->get('/TSA2/tasks/(:num)/edit', 'TSA2\Tasks::edit/$1');
+$routes->post('/TSA2/tasks/(:num)', 'TSA2\Tasks::update/$1');
+$routes->post('/TSA2/tasks/(:num)/delete', 'TSA2\Tasks::delete/$1');
