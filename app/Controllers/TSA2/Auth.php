@@ -61,13 +61,19 @@ class Auth extends BaseController
             ]);
         }
 
-        $model->insert([
+        $userId = $model->insert([
             'username'   => $this->request->getPost('username'),
             'full_name'  => $this->request->getPost('full_name'),
             'email'      => $this->request->getPost('email'),
             'password'   => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
+
+        if ($userId === false) {
+            return view('TSA2/register', [
+                'error' => 'Your account could not be created. Please try again.',
+            ]);
+        }
 
         return redirect()->to('/TSA2/login')->with('success', 'Registration successful. Please log in.');
     }
