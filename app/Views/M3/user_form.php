@@ -7,7 +7,11 @@
     <?php include APPPATH . 'Views/_styles.php'; ?>
 </head>
 <body>
-    <?php include APPPATH . 'Views/TFA4/_nav.php'; ?>
+    <nav>
+        <a href="/M3/index">Module 3</a> |
+        <a href="/customers">Customer Accounts</a> |
+        <a href="/users">User Accounts</a>
+    </nav>
 
     <h1><?= esc($heading) ?></h1>
 
@@ -27,11 +31,6 @@
 
         <label for="full_name">Full name</label>
         <input id="full_name" name="full_name" type="text" value="<?= esc($user['full_name'] ?? '') ?>" required>
-
-        <label for="password">
-            Password<?= isset($user['id']) ? ' (leave blank to keep current password)' : ' (at least 8 characters)' ?>
-        </label>
-        <input id="password" name="password" type="password" minlength="8" <?= isset($user['id']) ? '' : 'required' ?>>
 
         <label for="avatar">Profile picture (JPG or PNG, maximum 2MB)</label>
         <input id="avatar" name="avatar" type="file" accept="image/jpeg,image/png">

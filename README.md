@@ -96,38 +96,28 @@ Every update pushed to `main` is automatically deployed to the live website.
 
 ## Running TFA4 POS Authentication
 
-TFA4 adds staff login to the POS customer and user account pages. It uses the
-existing `m3` MySQLi connection configured in `app/Config/Database.php`, which
-is compatible with MariaDB. The GitHub deployment workflow updates application
+TFA4 has its own staff login and customer/user accounts. It uses the same
+MariaDB database connection as M3 but a separate `tfa4_` table prefix, so it
+creates `tfa4_customers`, `tfa4_users`, and `tfa4_migrations`. TFA3 routes and
+tables remain unchanged. The GitHub deployment workflow updates application
 files but does not run database migrations.
 
-After deploying, run the migration on the VPS against the production MariaDB.
-Confirm the TFA3 POS tables and user records are present first. For existing
-users, enter a temporary password at the prompt; it is assigned to all existing
-POS users, with a separate `password_hash()` stored for each account:
-
-Before migrating, verify that the migration-history table already records the
-TFA3 migrations for the POS database. If the POS tables were imported or
-created manually and that history is missing, do not run `migrate` yet: it may
-try to recreate existing tables.
+After deploying, run the TFA4 migration on the VPS. It creates an initial
+`admin` account named `POS Administrator`; set its password privately in the
+shell. This does not read or modify M3 user records.
 
 ```bash
 cd /var/www/codeigniter
 (
-  read -s -p "Temporary password for existing POS users: " M3_INITIAL_USER_PASSWORD
+  read -s -p "Initial TFA4 admin password: " TFA4_INITIAL_USER_PASSWORD
   printf '\n'
-  export M3_INITIAL_USER_PASSWORD
-  env 'database.defaultGroup=m3' php spark migrate -g m3
+  export TFA4_INITIAL_USER_PASSWORD
+  env 'database.defaultGroup=tfa4' php spark migrate -g tfa4
 )
 ```
 
-The temporary `database.defaultGroup` setting lets the migration runner use
-the POS database for its migration history as well as for the TFA4 migration.
-
-Use the temporary password to sign in at `/TFA4/login`, then update users with
-unique passwords from the User Accounts page. Passwords must be at least eight
-characters. If the POS users table is empty, the migration does not require the
-environment variable; a user record must still exist to log in.
+Sign in at `/TFA4/login` with username `admin` and the password you entered.
+TFA4 password changes require at least eight characters.
 
 ---
 

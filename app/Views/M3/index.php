@@ -9,6 +9,10 @@
 <body>
     <h1>Module 3 POS Accounts</h1>
 
-    <?php include APPPATH . 'Views/TFA4/_nav.php'; ?>
+    <nav>
+        <a href="/">get me out</a> |
+        <a href="/customers">Customer Accounts</a> |
+        <a href="/users">User Accounts</a>
+    </nav>
 </body>
 </html>

@@ -91,6 +91,8 @@ class Database extends Config
         'port'         => 3306,
     ];
 
+    public array $tfa4 = [];
+
     //    /**
     //     * Sample database connection for SQLite3.
     //     *
@@ -233,6 +235,9 @@ class Database extends Config
     public function __construct()
     {
         parent::__construct();
+
+        $this->tfa4 = array_replace($this->m3, $this->tfa4);
+        $this->tfa4['DBPrefix'] = 'tfa4_';
 
         // Ensure that we always set the database group to 'tests' if
         // we are currently running an automated test suite, so that

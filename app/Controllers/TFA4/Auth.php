@@ -3,7 +3,7 @@
 namespace App\Controllers\TFA4;
 
 use App\Controllers\BaseController;
-use App\Models\M3\UserModel;
+use App\Models\TFA4\UserModel;
 
 class Auth extends BaseController
 {
