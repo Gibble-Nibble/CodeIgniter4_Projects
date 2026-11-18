@@ -25,8 +25,6 @@ This repository is my personal collection of work.
 
 It serves as a central archive for school activities, programming projects, experiments, and other things I want to keep in one place. As the collection grows, new projects will be added and organized through the website.
 
----
-
 ## Deployment
 
 The live archive is hosted on an **Oracle Cloud VPS** and automatically deployed through **GitHub Actions**.
