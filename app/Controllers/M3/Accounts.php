@@ -99,7 +99,14 @@ class Accounts extends BaseController
     {
         $model = new UserModel();
         $data = $this->request->getPost(['username', 'full_name']);
+        $password = (string) $this->request->getPost('password');
         $errors = $this->validateUserData($model, $data);
+        if ($password === '') {
+            $errors['password'] = 'Password is required.';
+        } elseif (strlen($password) < 8) {
+            $errors['password'] = 'Password must be at least 8 characters long.';
+        }
+
         if ($errors !== []) {
             return view('M3/user_form', [
                 'user' => $data, 'errors' => $errors,
@@ -107,6 +114,7 @@ class Accounts extends BaseController
             ]);
         }
 
+        $data['password'] = password_hash($password, PASSWORD_DEFAULT);
         $model->insert($data);
         return redirect()->to('/users')->with('message', 'User added successfully.');
     }
@@ -133,7 +141,12 @@ class Accounts extends BaseController
         }
 
         $data = $this->request->getPost(['username', 'full_name']);
+        $password = (string) $this->request->getPost('password');
         $errors = $this->validateUserData($model, $data, $id);
+        if ($password !== '' && strlen($password) < 8) {
+            $errors['password'] = 'Password must be at least 8 characters long.';
+        }
+
         $avatar = $this->request->getFile('avatar');
         if ($avatar !== null && $avatar->getError() !== UPLOAD_ERR_NO_FILE) {
             $avatarName = $this->prepareAvatar($avatar, $errors);
@@ -151,6 +164,10 @@ class Accounts extends BaseController
                 'user' => array_merge($user, $data), 'errors' => $errors,
                 'formAction' => site_url('users/' . $id), 'heading' => 'Edit User',
             ]);
+        }
+
+        if ($password !== '') {
+            $data['password'] = password_hash($password, PASSWORD_DEFAULT);
         }
 
         $model->update($id, $data);

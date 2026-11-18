@@ -19,16 +19,19 @@ $routes->get('/M2/users', 'Users::module2_index');
 
 // Module 3 routes
 $routes->get('/M3/index', 'M3\Accounts::index');
-$routes->get('/customers', 'M3\Accounts::customers');
-$routes->get('/customers/new', 'M3\Accounts::newCustomer');
-$routes->post('/customers', 'M3\Accounts::createCustomer');
-$routes->get('/customers/(:num)/edit', 'M3\Accounts::editCustomer/$1');
-$routes->post('/customers/(:num)', 'M3\Accounts::updateCustomer/$1');
-$routes->get('/users', 'M3\Accounts::users');
-$routes->get('/users/new', 'M3\Accounts::newUser');
-$routes->post('/users', 'M3\Accounts::createUser');
-$routes->get('/users/(:num)/edit', 'M3\Accounts::editUser/$1');
-$routes->post('/users/(:num)', 'M3\Accounts::updateUser/$1');
+$routes->get('/TFA4/index', 'TFA4\Pos::index');
+$routes->match(['get', 'post'], '/TFA4/login', 'TFA4\Auth::login');
+$routes->post('/TFA4/logout', 'TFA4\Auth::logout');
+$routes->get('/customers', 'M3\Accounts::customers', ['filter' => 'tfa4auth']);
+$routes->get('/customers/new', 'M3\Accounts::newCustomer', ['filter' => 'tfa4auth']);
+$routes->post('/customers', 'M3\Accounts::createCustomer', ['filter' => 'tfa4auth']);
+$routes->get('/customers/(:num)/edit', 'M3\Accounts::editCustomer/$1', ['filter' => 'tfa4auth']);
+$routes->post('/customers/(:num)', 'M3\Accounts::updateCustomer/$1', ['filter' => 'tfa4auth']);
+$routes->get('/users', 'M3\Accounts::users', ['filter' => 'tfa4auth']);
+$routes->get('/users/new', 'M3\Accounts::newUser', ['filter' => 'tfa4auth']);
+$routes->post('/users', 'M3\Accounts::createUser', ['filter' => 'tfa4auth']);
+$routes->get('/users/(:num)/edit', 'M3\Accounts::editUser/$1', ['filter' => 'tfa4auth']);
+$routes->post('/users/(:num)', 'M3\Accounts::updateUser/$1', ['filter' => 'tfa4auth']);
 
 // TSA1 routes
 $routes->get('/TSA1/index', 'TSA1\Tasks::welcome');

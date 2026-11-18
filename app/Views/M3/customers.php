@@ -7,12 +7,8 @@
     <?php include APPPATH . 'Views/_styles.php'; ?>
 </head>
 <body>
-    <nav>
-        <a href="/M3/index">Module 3</a> |
-        <a href="/customers">Customer Accounts</a> |
-        <a href="/users">User Accounts</a> |
-        <a href="/customers/new">Add customer</a>
-    </nav>
+    <?php include APPPATH . 'Views/TFA4/_nav.php'; ?>
+    <p><a href="/customers/new">Add customer</a></p>
 
     <h1>Customer Accounts</h1>
 
