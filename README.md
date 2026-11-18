@@ -50,10 +50,7 @@ Local Development
 ```
 
 </div>
-
 Every update pushed to `main` is automatically deployed to the live website.
-
----
 
 ## Status
 
